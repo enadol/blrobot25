@@ -56,7 +56,7 @@ def getRepeats():
            newrepeat = 0
            #lstrepeats.append(newrepeat)
         else:
-            newrepeat = (lstindexes[i] - lstindexes[i-1])-len(lstindexes)
+            newrepeat = (lstindexes[i] - lstindexes[i-1])-len(lstindexes)+1
             lstrepeats.append(newrepeat)
            
     #print(lstindexes)
