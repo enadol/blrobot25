@@ -10,7 +10,7 @@ season=[]
 
 
 from fetchwd import MDSolo
-from precompute import clubes
+from precomputewd import clubes
 
 def getTotalsClub():
 

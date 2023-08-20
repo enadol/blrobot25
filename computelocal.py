@@ -4,7 +4,7 @@ Created on Tue Apr  7 08:57:19 2020
 
 @author: Enrique Lopez
 """
-
+#cambié a precomputewd 2024
 from precompute import matches, clubes
 
 MDSolol=[]

@@ -2,9 +2,9 @@
 #import requests
 from computetotalwd import season
 import sqlite3
-import datetime
+#import datetime
 
-conn = sqlite3.connect('season21.sqlite')
+conn = sqlite3.connect('season23.sqlite')
 cur = conn.cursor()
 conn.text_factory = str
 
@@ -16,6 +16,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Puntos (Jornada INTEGER, Equipo TEXT, 
 
 
 for d in range(0, len(season)):
+    #day=datetime.datetime(season[d][9])
     equipo= season[d][0]
     jornada = season[d][1]
     pj = season[d][1]
@@ -26,7 +27,9 @@ for d in range(0, len(season)):
     gc = season[d][6]
     difer = season[d][7]
     puntos = season[d][8]
-    fecha = datetime.datetime.strptime(season[d][9], "%Y-%m-%d")
+    #fecha = datetime.datetime.strptime(season[d][9], "%Y-%m-%d")
+    fecha = f'{season[d][9]}'
+
     
     cur.execute('''INSERT OR IGNORE INTO Partidos (Equipo, Jornada, PJ, PG, PE, PP, Date)  VALUES (?, ?, ?, ?, ?, ?, date(?))''', (equipo, jornada, pj, pg, pe, pp, fecha))
     cur.execute('''INSERT OR IGNORE INTO Goles (Equipo, Jornada, PJ, Goles_a_favor, Goles_en_contra, Diferencia, Date)  VALUES (?, ?, ?, ?, ?, ?, date(?))''', (equipo, jornada, pj, gf, gc, difer, fecha))

@@ -1,5 +1,5 @@
 import urllib.request
-import datetime
+#import datetime
 
 lstdates=[]
 clubes = []
@@ -56,7 +56,7 @@ def getRepeats():
            newrepeat = 0
            #lstrepeats.append(newrepeat)
         else:
-            newrepeat = (lstindexes[i] - lstindexes[i-1])-len(lstindexes)+1
+            newrepeat = 9
             lstrepeats.append(newrepeat)
            
     #print(lstindexes)
@@ -72,22 +72,22 @@ def structureDates():
             fechaformat = fechaformat[0].split('.')
             if int(fechaformat[1]) >=8:
                 #change
-                year = '2021'
+                year = '2023'
             else:
                 #change
-                year = '2022'
+                year = '2024'
             fechaformat = year+'-'+fechaformat[1].zfill(2)+'-'+fechaformat[0].zfill(2)
             datesStructured.append(fechaformat)
         
     
 
-clubcodes={"Eintracht Frankfurt": "FFM","TSG Hoffenheim": "HOF","Bayern Muenchen": "FCB","VfL Wolfsburg": "WOB","Borussia Dortmund": "BVB","FC Augsburg": "FCA","RB Leipzig": "RBL","SC Freiburg":"SCF","Hertha BSC":"BSC","SpVgg Greuther Fuerth": "fuerth","Bor. Moenchengladbach":"BMG", "Bayer 04 Leverkusen":"B04","VfL Bochum":"bochum","1. FSV Mainz 05":"M05", "VfB Stuttgart": "STU", "1. FC Koeln": "KOE", "1. FC Union Berlin": "FCU", "Arminia Bielefeld": "BIE"}
-clubkeys={"Eintracht Frankfurt":"frankfurt", "TSG Hoffenheim":"hoffenheim","Bayern Muenchen": "bayern","VfL Wolfsburg":"wolfsburg","Borussia Dortmund":"dortmund","FC Augsburg":"augsburg","RB Leipzig": "leipzig","SC Freiburg":"freiburg","Hertha BSC":"herthabsc","SpVgg Greuther Fuerth": "fuerth","Bor. Moenchengladbach": "mgladbach","Bayer 04 Leverkusen":"leverkusen","VfL Bochum":"bochum","1. FSV Mainz 05":"mainz", "VfB Stuttgart": "stuttgart", "1. FC Koeln": "KOE", "1. FC Union Berlin": "FCU", "Arminia Bielefeld": "BIE"}
+clubcodes={"Eintracht Frankfurt": "FFM","TSG Hoffenheim": "HOF","Bayern Muenchen": "FCB","VfL Wolfsburg": "WOB","Borussia Dortmund": "BVB","FC Augsburg": "FCA","RB Leipzig": "RBL","SC Freiburg":"SCF","SV Darmstadt 98":"SVD","1. FC Heidenheim": "FCH","Bor. Moenchengladbach":"BMG", "Bayer 04 Leverkusen":"B04","VfL Bochum":"bochum","1. FSV Mainz 05":"M05", "VfB Stuttgart": "STU", "1. FC Koeln": "KOE", "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
+clubkeys={"Eintracht Frankfurt":"frankfurt", "TSG Hoffenheim":"hoffenheim","Bayern Muenchen": "bayern","VfL Wolfsburg":"wolfsburg","Borussia Dortmund":"dortmund","FC Augsburg":"augsburg","RB Leipzig": "leipzig","SC Freiburg":"freiburg","SV Darmstadt 98":"darmstadt","1. FC Heidenheim": "heidenheim","Bor. Moenchengladbach": "mgladbach","Bayer 04 Leverkusen":"leverkusen","VfL Bochum":"bochum","1. FSV Mainz 05":"mainz", "VfB Stuttgart": "stuttgart", "1. FC Koeln": "KOE", "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
 
 for item in clubcodes:
     clubes = list(clubcodes.keys())
 
-with urllib.request.urlopen('https://raw.githubusercontent.com/enadol/bundesliga/main/bundesliga-2022.txt') as response:
+with urllib.request.urlopen('https://raw.githubusercontent.com/enadol/merobot/master/bundesliga-2024.txt') as response:
 	data = response.read()
 
 	data2 = data.decode('utf-8')
@@ -178,6 +178,4 @@ for club in clubes:
     count = 0
     for y in range(0, len(lsthome)):
         if lsthome[y]==club or lstaway[y] == club:
-            count = count+1
-
-      
+            count = count+1      

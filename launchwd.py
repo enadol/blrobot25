@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 try:
-	subprocess.run(['C:\\Users\\enado\\Proyectos\\Python33\\blrobot22\\redir.bat']) #or your own path
+	subprocess.run(['C:\\Users\\enado\\Proyectos\\Python33\\blrobot24\\redir.bat']) #or your own path
 	print("Launching robot...")
 	import precomputewd
 	import fetchwd
@@ -28,7 +28,7 @@ except ValueError:
     print("Could not convert data to an integer.", sys.exc_info()[0])
 
 except KeyError:
-	print(f"Error. No pasó la clave de un club. ¿Se jugó ya la jornada completa?", sys.exc_info()[0])
+	print("Error. No pasó la clave de un club. ¿Se jugó ya la jornada completa?", sys.exc_info()[0])
     
 except:
     print("Unexpected error:", sys.exc_info()[0])
