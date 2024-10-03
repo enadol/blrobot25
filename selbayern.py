@@ -16,7 +16,7 @@ from selenium.webdriver.common.by import By
 #from selenium.webdriver.chrome.service import Service
 #from webdriver_manager.chrome import ChromeDriverManager
 #from selenium.webdriver.support.ui import Select
-import pandas as pd
+#import pandas as pd
 
 DRIVER_PATH='C:/Users/enado/ChromeDriver/chromedriver'
 #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))

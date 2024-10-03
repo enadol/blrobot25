@@ -9,8 +9,8 @@ Created on Mon May  9 18:47:36 2022
 import requests
 from bs4 import BeautifulSoup
 
-md=1
-torneo='2023-24'
+md=5
+torneo='2024-25'
 lstDates=[]
 lstDatesCumul=[]
 

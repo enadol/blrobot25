@@ -66,11 +66,14 @@ def classifyTeams():
         else:
             lstAway.append(club)
         #count=count+1
-#por partido suspendido hasta el 6 de abril
-#del lstHome[233]
-#del lstAway[233]
 
 classifyTeams()
+
+#por partido suspendido hasta el 6 de abril
+#del lstHome[161]
+#del lstAway[161]
+
+
         
 def golesClass():
     nbuffer=0
@@ -127,7 +130,8 @@ for index in lstIndexesH:
 def matchIn():
     for i in range(0, len(lstGHome)):
         if(i <len(lstGHome)):
-            lstMatch.append("    "+ lstHome[i] + "  "+lstGHome[i]+"-"+lstGAway[i]+"  "+ lstAway[i]+"\n")
+            #lstMatch.append("    "+ lstHome[i] + "  "+lstGHome[i]+"-"+lstGAway[i]+"  "+ lstAway[i]+"\n")
+            lstMatch.append(f'    {lstHome[i]}  {lstGHome[i]}-{lstGAway[i]}  {lstAway[i]}\n')
         
 def mdIn():
 
@@ -139,7 +143,7 @@ def mdIn():
 
 def meRobot():
    
-    with codecs.open("C:/Users/enado/Proyectos/Python33/merobot/bundesliga-2024.txt", "w", "utf-8") as file:
+    with codecs.open("C:/Users/enado/Proyectos/Python33/merobot/bundesliga-2025.txt", "w", "utf-8") as file:
         file.write("\ufeff")
         countjornadas=0
         count2=0
@@ -148,11 +152,13 @@ def meRobot():
             if g%9==0:
                 file.write(lstJornadas[countjornadas]+ "\n")
                 file.write(lstDatesCumul[countjornadas]+'\n')
-                file.write("    "+ line)
+                #file.write("    "+ line)
+                file.write(f'    {line}')
                 countjornadas=countjornadas+1
             else:
                 if count2<=len(lstMatch):
-                    file.write("    "+line)
+                    #file.write("    "+line)
+                    file.write(f'    {line}')
             count2=count2+1
                                 
             #else:

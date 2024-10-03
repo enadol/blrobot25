@@ -4,7 +4,7 @@ from computetotalwd import season
 import sqlite3
 #import datetime
 
-conn = sqlite3.connect('season23.sqlite')
+conn = sqlite3.connect('season24.sqlite')
 cur = conn.cursor()
 conn.text_factory = str
 
