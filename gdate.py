@@ -9,7 +9,7 @@ Created on Mon May  9 18:47:36 2022
 import requests
 from bs4 import BeautifulSoup
 
-MD = 5
+MD = 6
 TORNEO = '2024-25'
 lstDates = []
 lst_dates_cumul = []
@@ -40,4 +40,3 @@ def get_mdd_dates(mday):
 
 for i in range(1, MD+1):
     agg_date = get_mdd_dates(i)
-

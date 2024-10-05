@@ -1,1 +1,1 @@
-del season23.sqlite
+del season24.sqlite

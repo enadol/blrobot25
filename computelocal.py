@@ -5,13 +5,13 @@ Created on Tue Apr  7 08:57:19 2020
 @author: Enrique Lopez
 """
 #cambié a precomputewd 2024
-from precompute import matches, clubes
+from precomputewd import matches, clubes
 
 MDSolol=[]
 mdl = []
 
-def getClubData(club, match):
-    
+def get_club_data(club, match):
+    """compute club data"""
     pjl=0
     pgl=0
     pel=0
@@ -20,7 +20,7 @@ def getClubData(club, match):
     gfl=0
     gcl=0
     difl=0
-    
+
     if match['teamhome']== club:
         pjl= pjl +1
         if match['pointslocal'] == 3:
@@ -30,23 +30,23 @@ def getClubData(club, match):
         else:
             if match['pointslocal'] == 0:
                 ppl = ppl+1
-    
         puntosl= match['pointslocal']
         gfl = match['goalshome']
         gcl = match['goalsaway']
         difl = gfl - gcl
-        
-                
+
     return([club, pjl,pgl,pel,ppl,gfl,gcl,difl, puntosl])
-    
-def getClubMDSolol(club):
+
+def get_club_md_solo_l(club):
+    """compute club data local"""
     for match in matches:
         if match['teamhome'] == club:
-            mdl = getClubData(match['teamhome'], match)
+            mdl = get_club_data(match['teamhome'], match)
             MDSolol.append(mdl)
-            
-def injectClubMDsl():
+
+def inject_club_mds_l():
+    """inject club data local"""
     for club in clubes:
-        getClubMDSolol(club)
-        
-injectClubMDsl()
+        get_club_md_solo_l(club)
+
+inject_club_mds_l()
