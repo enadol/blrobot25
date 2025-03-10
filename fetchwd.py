@@ -10,7 +10,6 @@ from precomputewd import matches, clubes
 MDSolo = []
 md = []
 
-
 def get_club_data(club, match):
     """compute club data"""
     pj = 0
@@ -24,14 +23,14 @@ def get_club_data(club, match):
     date = ''
 
     if match['teamhome'] == club:
-        pj = pj + 1
+        pj += 1
         if match['pointslocal'] == 3:
-            pg = pg + 1
+            pg += 1
         elif match['pointslocal'] == 1:
-            pe = pe + 1
+            pe += 1
         else:
             if match['pointslocal'] == 0:
-                pp = pp+1
+                pp += 1
 
         puntos = match['pointslocal']
         gf = match['goalshome']
@@ -40,39 +39,37 @@ def get_club_data(club, match):
         date = match['date']
     else:
         if match['teamaway'] == club:
-            pj = pj+1
+            pj += 1
             if match['pointsvisitor'] == 3:
-                pg = pg+1
+                pg += 1
             elif match['pointsvisitor'] == 1:
-                pe = pe+1
+                pe += 1
             else:
                 if match['pointsvisitor'] == 0:
-                    pp = pp+1
-        puntos = match['pointsvisitor']
-        gf = match['goalsaway']
-        gc = match['goalshome']
-        dif = gf - gc
-        date = match['date']
+                    pp += 1
+            puntos = match['pointsvisitor']
+            gf = match['goalsaway']
+            gc = match['goalshome']
+            dif = gf - gc
+            date = match['date']
 
-    return ([club, pj, pg, pe, pp, gf, gc, dif, puntos, date])
+    return [club, pj, pg, pe, pp, gf, gc, dif, puntos, date]
 
 
 def get_club_solo(club):
     """compute teams matches"""
     for match in matches:
-        if match['teamhome'] == club:
-            md = get_club_data(match['teamhome'], match)
+        if match['teamhome'] == club or match['teamaway'] == club:
+            md = get_club_data(club, match)
             MDSolo.append(md)
-        else:
-            if match['teamaway'] == club:
-                md = get_club_data(match['teamaway'], match)
-                MDSolo.append(md)
 
 
 def inject_clubs_mds():
     """inject teams matches"""
+    MDSolo.clear()
     for club in clubes:
         get_club_solo(club)
 
 
 inject_clubs_mds()
+

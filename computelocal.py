@@ -4,49 +4,64 @@ Created on Tue Apr  7 08:57:19 2020
 
 @author: Enrique Lopez
 """
-#cambié a precomputewd 2024
 from precomputewd import matches, clubes
 
-MDSolol=[]
-mdl = []
+MDSolol = []
+md = []
 
 def get_club_data(club, match):
     """compute club data"""
-    pjl=0
-    pgl=0
-    pel=0
-    ppl=0
-    puntosl=0
-    gfl=0
-    gcl=0
-    difl=0
+    pj = 0
+    pg = 0
+    pe = 0
+    pp = 0
+    puntos = 0
+    gf = 0
+    gc = 0
+    dif = 0
 
-    if match['teamhome']== club:
-        pjl= pjl +1
+    if match['teamhome'] == club:
+        pj += 1
         if match['pointslocal'] == 3:
-            pgl = pgl +1
+            pg += 1
         elif match['pointslocal'] == 1:
-            pel = pel +1
+            pe += 1
         else:
             if match['pointslocal'] == 0:
-                ppl = ppl+1
-        puntosl= match['pointslocal']
-        gfl = match['goalshome']
-        gcl = match['goalsaway']
-        difl = gfl - gcl
+                pp += 1
+        puntos = match['pointslocal']
+        gf = match['goalshome']
+        gc = match['goalsaway']
+        dif = gf - gc
 
-    return([club, pjl,pgl,pel,ppl,gfl,gcl,difl, puntosl])
+    elif match['teamaway'] == club:
+        pj += 1
+        if match['pointsvisitor'] == 3:
+            pg += 1
+        elif match['pointsvisitor'] == 1:
+            pe += 1
+        else:
+            if match['pointsvisitor'] == 0:
+                pp += 1
+        puntos = match['pointsvisitor']
+        gf = match['goalsaway']
+        gc = match['goalshome']
+        dif = gf - gc
 
-def get_club_md_solo_l(club):
+    return [club, pj, pg, pe, pp, gf, gc, dif, puntos]
+
+def get_club_md_solo(club):
     """compute club data local"""
     for match in matches:
-        if match['teamhome'] == club:
-            mdl = get_club_data(match['teamhome'], match)
-            MDSolol.append(mdl)
+        if match['teamhome'] == club or match['teamaway'] == club:
+            md = get_club_data(club, match)
+            MDSolol.append(md)
 
-def inject_club_mds_l():
+def inject_club_mds():
     """inject club data local"""
+    MDSolol.clear()
     for club in clubes:
-        get_club_md_solo_l(club)
+        get_club_md_solo(club)
 
-inject_club_mds_l()
+inject_club_mds()
+

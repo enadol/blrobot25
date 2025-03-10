@@ -148,20 +148,16 @@ for line in lines:
             aways.append(away)
 
 for index, value in enumerate(homes):
-    # for i in range(0, len(homes)):
-    local = homes[index].split('  ')
-    if local[len(local)-1] != '':
-        if local[len(local)-1] != ' ':
-            goalshome = local[len(local)-1]
-            lstgoalshome.append(goalshome.strip())
-            lsthome.append(local[0])
+    local = value.split('  ')
+    if local and local[-1].strip():
+        goalshome = local[-1].strip()
+        lstgoalshome.append(goalshome)
+        lsthome.append(local[0].strip())
     visitante = aways[index].split('  ')
-    # visitante = visitante[0].split(' ', 1)
-    if visitante[0] != '':
+    if visitante and visitante[0].strip():
         goalsaway = visitante[0][0]
         lstgoalsaway.append(goalsaway)
-        lstaway.append(visitante[1].strip())
-        # i = i+1
+        lstaway.append(visitante[1].strip() if len(visitante) > 1 else '')
 
 structure_dates()
 for index, value in enumerate(lsthome):
