@@ -49,3 +49,4 @@ for d, value in enumerate(season):
 
     conn.commit()
 cur.close()
+conn.close()
