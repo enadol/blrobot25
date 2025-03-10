@@ -44,15 +44,12 @@ def get_repeats():
     """locate and call data"""
     # lstindexes=[]
     for line in lines:
-        if len(line) > 0:
-            if not line.startswith('Spieltag'):
-                if not line.startswith('='):
-                    linea = line
-                    doc.append(linea)
-  #      if line.startswith('') and len(line) > 0:
-                    if linea.startswith('['):
-                        if not linea.startswith('Spieltag'):
-                            lstindexes.append(doc.index(linea))
+        if line:  # Check if line is not empty
+            if not line.startswith('Spieltag') and not line.startswith('='):
+                doc.append(line)
+                if line.startswith('[') and not line.startswith('Spieltag'):
+                    lstindexes.append(len(doc) - 1)  # Use len(doc) - 1 instead of doc.index(line)
+
 
     for repeat in lstindexes:
         i = lstindexes.index(repeat)
