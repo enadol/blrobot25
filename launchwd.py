@@ -4,7 +4,7 @@ import sys
 import subprocess
 
 try:
-    subprocess.run(['C:\\Users\\enado\\Proyectos\\Python33\\blrobot25\\redir.bat'], check=True) #or your own path
+    subprocess.run(['C:\\Users\\enado\\Proyectos\\Python33\\blrobot25\\redir.bat'], check=False) #or your own path
     print("Launching robot...")
     import precomputewd
     import fetchwd

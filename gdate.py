@@ -9,18 +9,22 @@ Created on Mon May  9 18:47:36 2022
 import requests
 from bs4 import BeautifulSoup
 
-MD = 6
+MD = 19
 TORNEO = '2024-25'
 lstDates = []
 lst_dates_cumul = []
 
 
-def get_mdd_dates(mday):
+def get_mdd_dates(MD):
     """create empty list to populate with dates"""
     list_mdd_dates = []
-    mdpage = requests.get(f'https://kicker.de/bundesliga/spieltag/{TORNEO}/{mday}', timeout=10)
+    mdpage = requests.get(f'https://kicker.de/Bundesliga/spieltag/{TORNEO}/{MD}', timeout=10)
     if mdpage.status_code == 200:
         content = mdpage.content
+    else:
+        mdpage = requests.get(f'https://kicker.de/bundesliga/spieltag/{TORNEO}/{MD}', timeout=10)
+        if mdpage.status_code == 200:
+            content = mdpage.content
     klass = ["kick__v100-gameList__header"]
     soup = BeautifulSoup(content, 'html.parser')
     # print(soup.prettify())

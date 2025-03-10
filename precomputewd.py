@@ -86,26 +86,26 @@ def structure_dates():
             dates_structured.append(fechaformat)
 
 
-clubcodes = {"Eintracht Frankfurt": "FFM", "TSG Hoffenheim": "HOF",\
-             "Bayern Muenchen": "FCB", "VfL Wolfsburg": "WOB",\
-             "Borussia Dortmund": "BVB", "FC Augsburg": "FCA",\
-             "RB Leipzig": "RBL", "SC Freiburg": "SCF", "FC St. Pauli": "STP",\
-             "1. FC Heidenheim": "FCH", "Bor. Moenchengladbach": "BMG",\
-             "Bayer 04 Leverkusen": "B04", "VfL Bochum": "bochum", "1. FSV Mainz 05": "M05",\
-             "VfB Stuttgart": "STU", "Holstein Kiel": "KIE",\
-             "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
-clubkeys = {"Eintracht Frankfurt": "frankfurt", "TSG Hoffenheim": "hoffenheim",\
-            "Bayern Muenchen": "bayern", "VfL Wolfsburg": "wolfsburg",\
-            "Borussia Dortmund": "dortmund", "FC Augsburg": "augsburg",\
-            "RB Leipzig": "leipzig", "SC Freiburg": "freiburg",\
-            "FC St. Pauli": "STP", "1. FC Heidenheim": "heidenheim",\
-            "Bor. Moenchengladbach": "mgladbach", "Bayer 04 Leverkusen": "leverkusen",\
-            "VfL Bochum": "bochum", "1. FSV Mainz 05": "mainz",\
-            "VfB Stuttgart": "stuttgart", "Holstein Kiel": "KIE", \
-            "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
+#clubcodes = {"Eintracht Frankfurt": "FFM", "TSG Hoffenheim": "HOF",\
+#             "Bayern Muenchen": "FCB", "VfL Wolfsburg": "WOB",\
+#             "Borussia Dortmund": "BVB", "FC Augsburg": "FCA",\
+#             "RB Leipzig": "RBL", "SC Freiburg": "SCF", "FC St. Pauli": "STP",\
+#             "1. FC Heidenheim": "FCH", "Bor. Moenchengladbach": "BMG",\
+#             "Bayer 04 Leverkusen": "B04", "VfL Bochum": "bochum", "1. FSV Mainz 05": "M05",\
+#             "VfB Stuttgart": "STU", "Holstein Kiel": "KIE",\
+#             "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
+#clubkeys = {"Eintracht Frankfurt": "frankfurt", "TSG Hoffenheim": "hoffenheim",\
+#            "Bayern Muenchen": "bayern", "VfL Wolfsburg": "wolfsburg",\
+#            "Borussia Dortmund": "dortmund", "FC Augsburg": "augsburg",\
+#            "RB Leipzig": "leipzig", "SC Freiburg": "freiburg",\
+#            "FC St. Pauli": "STP", "1. FC Heidenheim": "heidenheim",\
+#            "Bor. Moenchengladbach": "mgladbach", "Bayer 04 Leverkusen": "leverkusen",\
+#            "VfL Bochum": "bochum", "1. FSV Mainz 05": "mainz",\
+#            "VfB Stuttgart": "stuttgart", "Holstein Kiel": "KIE", \
+#            "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
 
-for item in clubcodes:
-    clubes = list(clubcodes.keys())
+#for item in clubcodes:
+#    clubes = list(clubcodes.keys())
 URL='https://raw.githubusercontent.com/enadol/merobot/master/bundesliga-2025.txt'
 with urllib.request.urlopen(URL) as response:
     data = response.read()
@@ -179,6 +179,8 @@ for index, value in enumerate(lsthome):
         "date": dates_structured[index]
     }
     matches.append(element)
+
+clubes=list(set(lsthome))
 
 for club in clubes:
     count = 0
