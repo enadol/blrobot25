@@ -70,5 +70,4 @@ def inject_clubs_mds():
     for club in clubes:
         get_club_solo(club)
 
-
 inject_clubs_mds()

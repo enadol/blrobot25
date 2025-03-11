@@ -12,6 +12,7 @@ lstTotalMDRows = []
 season = []
 
 def get_totals_club():
+    """compute totals for each club"""
     for club in clubes:
         MDBuffer = ['', 0, 0, 0, 0, 0, 0, 0, 0, ""]
         for index, value in enumerate(MDSolo):
@@ -24,6 +25,7 @@ def get_totals_club():
         lstTotalsClub.append(MDBuffer)
 
 def get_all():
+    """compute all data"""
     for club in clubes:
         bufferpj = 0
         bufferpg = 0
@@ -51,4 +53,4 @@ def get_all():
 
 get_totals_club()
 get_all()
-
+ 
