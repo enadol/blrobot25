@@ -72,4 +72,3 @@ def inject_clubs_mds():
 
 
 inject_clubs_mds()
-
