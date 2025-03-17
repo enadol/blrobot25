@@ -179,3 +179,4 @@ def meRobot():
 matchIn()
 meRobot()
 
+driver.close()
