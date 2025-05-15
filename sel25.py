@@ -4,7 +4,7 @@ Created on Sun Apr 11 12:50:41 2021
 
 @author: enado
 """
-# WORKFLOW - bs23 - MEROBOT A GIT EN SHELL - LAUNCHWD
+# WORKFLOW -> sel25 -> MEROBOT A GIT EN SHELL - LAUNCHWD
 """import packages"""
 from selenium import webdriver
 from selenium.webdriver.common.by import By

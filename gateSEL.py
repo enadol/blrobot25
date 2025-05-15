@@ -5,7 +5,7 @@ Created on Mon May  9 18:47:36 2022
 @author: enado
 """
 # SOLO ACTUALIZAR MD !!
-#NO CORRER SOLO!! CORRE EN BS23!!
+#NO CORRER SOLO!! CORRE EN sel25!!
 #import requests
 #from bs4 import BeautifulSoup
 """import packages"""
@@ -16,7 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 #from bs4 import BeautifulSoup
 
-MD=26
+MD=33
 TORNEO='2024-25'
 lstDates = []
 lst_dates_cumul = []
@@ -78,3 +78,5 @@ def get_mdd_dates(mday):
 
 for i in range(1, MD+1):
     agg_date = get_mdd_dates(i)
+
+driver.close()
