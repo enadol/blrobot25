@@ -18,13 +18,11 @@ lstrepeats = []
 doc = []
 dates_structured = []
 
-
 def build_match(club, pj):
     """create match structure"""
     match = {"club": club,
              "pj": pj}
     return match
-
 
 def get_puntos(goalshome, goalsaway):
     """compute points"""
@@ -39,7 +37,6 @@ def get_puntos(goalshome, goalsaway):
         pointsvisitor = 3
     return ([pointslocal, pointsvisitor])
 
-
 def get_repeats():
     """locate and call data"""
     # lstindexes=[]
@@ -50,7 +47,6 @@ def get_repeats():
                 if line.startswith('[') and not line.startswith('Spieltag'):
                     lstindexes.append(len(doc) - 1)  # Use len(doc) - 1 instead of doc.index(line)
 
-
     for repeat in lstindexes:
         i = lstindexes.index(repeat)
         if i == 0:
@@ -59,11 +55,9 @@ def get_repeats():
         else:
             newrepeat = 9
             lstrepeats.append(newrepeat)
-
     # print(lstindexes)
     lstrepeats.append(9)
    # print(lstrepeats)
-
 
 def structure_dates():
     """format and structure dates"""
@@ -82,27 +76,6 @@ def structure_dates():
             fechaformat = year+'-'+fechaformat[1].zfill(2)+'-'+fechaformat[0].zfill(2)
             dates_structured.append(fechaformat)
 
-
-#clubcodes = {"Eintracht Frankfurt": "FFM", "TSG Hoffenheim": "HOF",\
-#             "Bayern Muenchen": "FCB", "VfL Wolfsburg": "WOB",\
-#             "Borussia Dortmund": "BVB", "FC Augsburg": "FCA",\
-#             "RB Leipzig": "RBL", "SC Freiburg": "SCF", "FC St. Pauli": "STP",\
-#             "1. FC Heidenheim": "FCH", "Bor. Moenchengladbach": "BMG",\
-#             "Bayer 04 Leverkusen": "B04", "VfL Bochum": "bochum", "1. FSV Mainz 05": "M05",\
-#             "VfB Stuttgart": "STU", "Holstein Kiel": "KIE",\
-#             "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
-#clubkeys = {"Eintracht Frankfurt": "frankfurt", "TSG Hoffenheim": "hoffenheim",\
-#            "Bayern Muenchen": "bayern", "VfL Wolfsburg": "wolfsburg",\
-#            "Borussia Dortmund": "dortmund", "FC Augsburg": "augsburg",\
-#            "RB Leipzig": "leipzig", "SC Freiburg": "freiburg",\
-#            "FC St. Pauli": "STP", "1. FC Heidenheim": "heidenheim",\
-#            "Bor. Moenchengladbach": "mgladbach", "Bayer 04 Leverkusen": "leverkusen",\
-#            "VfL Bochum": "bochum", "1. FSV Mainz 05": "mainz",\
-#            "VfB Stuttgart": "stuttgart", "Holstein Kiel": "KIE", \
-#            "1. FC Union Berlin": "FCU", "Werder Bremen": "BRE"}
-
-#for item in clubcodes:
-#    clubes = list(clubcodes.keys())
 URL='https://raw.githubusercontent.com/enadol/merobot/master/bundesliga-2025.txt'
 with urllib.request.urlopen(URL) as response:
     data = response.read()
@@ -114,7 +87,6 @@ with urllib.request.urlopen(URL) as response:
     lines = data2.splitlines()
 
 get_repeats()
-
 archivo.close()
 
 for line in lines:
@@ -161,7 +133,6 @@ for index, value in enumerate(homes):
 
 structure_dates()
 for index, value in enumerate(lsthome):
-    # for f in range(0, len(lsthome)):
     element = {
         "teamhome": lsthome[index],
         "teamaway": lstaway[index],
@@ -175,9 +146,9 @@ for index, value in enumerate(lsthome):
 
 clubes=list(set(lsthome))
 
-for club in clubes:
-    count = 0
-    for index, value in enumerate(lsthome):
-        # for y in range(0, len(lsthome)):
-        if lsthome[index] == club or lstaway[index] == club:
-            count = count+1
+#for club in clubes:
+#    count = 0
+#    for index, value in enumerate(lsthome):
+#        # for y in range(0, len(lsthome)):
+#        if lsthome[index] == club or lstaway[index] == club:
+#            count = count+1
